@@ -1,7 +1,5 @@
 public class ProblemSet7 {
-    public static void main(String[] args) {
-
-    }
+    public static void main(String[] args) {}
 
     /*
      * Exercise 1.
@@ -10,7 +8,11 @@ public class ProblemSet7 {
      * and last two characters of out.
      */
     public String surroundMe(String in, String out) {
-
+        if(in == null || out == null || out.length() != 4){
+            return in;
+        }else {
+            return out.substring(0, 2) + in + out.substring(2,4);
+        }
     }
 
     /*
