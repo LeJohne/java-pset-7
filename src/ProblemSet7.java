@@ -60,7 +60,7 @@ public class ProblemSet7 {
      */
     public boolean isCentered(String text, String target) {
         if(text == null || text.length() % 2 == 0 || target == null || target.length() != 3){
-            System.out.print(false);
+            return false;
         }else {
             double n = Math.ceil(text.length() / 2);
             int l = (int) n;
@@ -70,7 +70,7 @@ public class ProblemSet7 {
             text = first.concat(mid);
             text = text.concat(last);
 
-            System.out.print(target.equals(text)); ;
+            return target.equals(text); ;
         }
     }
 
@@ -80,9 +80,24 @@ public class ProblemSet7 {
      * Given a string and a character, compute the number of words that end in suffix.
      */
     public int countMe(String text, char suffix) {
+        String suffix1 = Character.toString(suffix);
+        int counter = 0;
 
+        if(text == null || !Character.isLetter(suffix) || text.length() == 0){
+            return -1;
+        } else{
+            String [] array;
+            array = text.split(" ", 1000);
 
-        
+            for (String word : array) {
+                if (word.endsWith(suffix1)) {
+                    counter++;
+                }
+            }
+
+            return counter;
+        }
+
     }
 
     /*
