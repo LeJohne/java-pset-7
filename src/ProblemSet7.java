@@ -58,14 +58,32 @@ public class ProblemSet7 {
      * Given two strings, determine whether or not target is equivalent to the middle
      * three characters of text.
      */
-    public boolean isCentered(String text, String target) {}
+    public boolean isCentered(String text, String target) {
+        if(text == null || text.length() % 2 == 0 || target == null || target.length() != 3){
+            System.out.print(false);
+        }else {
+            double n = Math.ceil(text.length() / 2);
+            int l = (int) n;
+            String first = text.substring(l - 1, l);
+            String mid = text.substring(l, l + 1);
+            String last = text.substring(l + 1, l + 2);
+            text = first.concat(mid);
+            text = text.concat(last);
+
+            System.out.print(target.equals(text)); ;
+        }
+    }
 
     /*
      * Exercise 5.
      *
      * Given a string and a character, compute the number of words that end in suffix.
      */
-    public int countMe(String text, char suffix) {}
+    public int countMe(String text, char suffix) {
+
+
+        
+    }
 
     /*
      * Exercise 6.
