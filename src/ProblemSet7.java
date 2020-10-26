@@ -70,7 +70,7 @@ public class ProblemSet7 {
             text = first.concat(mid);
             text = text.concat(last);
 
-            return target.equals(text); ;
+            return target.equals(text);
         }
     }
 
@@ -97,7 +97,6 @@ public class ProblemSet7 {
 
             return counter;
         }
-
     }
 
     /*
@@ -105,21 +104,68 @@ public class ProblemSet7 {
      *
      * Given a string, compute the number of triplets in text.
      */
-    public int triplets(String text) {}
+    public int triplets(String text) {
+        if (text == null){
+            return -1;
+
+        } else {
+            int counter = 0;
+            for(int x = 1; x < text.length()-1; x++){
+                if(text.charAt(x) == text.charAt(x+1) && text.charAt(x) == text.charAt(x-1)){
+                    counter++;
+                }
+            }
+            return counter;
+        }
+    }
 
     /*
      * Exercise 7.
      *
      * Given a string, compute the sum of the digits in text.
      */
-    public long addMe(String text) {}
+    public long addMe(String text) {
+
+        int sum = 0;
+        if (text == null){
+            return -1;
+        }else {
+            for(int x = 0; x < text.length(); x++){
+                if(Character.isDigit(text.charAt(x))){
+                    sum += Character.getNumericValue(text.charAt(x));
+                }
+            }
+            return sum;
+        }
+
+    }
 
     /*
      * Exercise 8.
      *
      * Given a string, compute the length of the longest sequence.
      */
-    public long sequence(String text) {}
+    public long sequence(String text) {
+        int count = 1;
+        int end = 1;
+        if(text == null){
+            return -1;
+        } else if (text == ""){
+            return 0;
+        } else {
+            for(int x = 0; x < text.length() - 1; x++){
+                if(text.charAt(x) == text.charAt(x + 1)){
+                    count++;
+                    if (count > end){
+                        end = count;
+                    }
+                } else {
+                    count = 1;
+                }
+            }
+            return end;
+        }
+    }
 
     /*
      * Exercise 9.
@@ -127,12 +173,49 @@ public class ProblemSet7 {
      * Given two strings, return a new string built by intertwining each of the
      * characters of a and b.
      */
-    public String intertwine(String a, String b) {}
+    public String intertwine(String a, String b) {
+
+        String c = "";
+        if(a == null || b == null){
+            return null;
+        }else {
+            if(a.length() >= b.length()){
+                for (int x = 0; x < b.length(); x++ ){
+                    c += a.charAt(x);
+                    c += b.charAt(x);
+                }
+                c += a.substring(b.length());
+            } else{
+                for(int x = 0; x < a.length (); x++ ){
+                    c += a.charAt(x);
+                    c += b.charAt(x);
+                }
+                c += b.substring(a.length());
+            }
+            return c;
+        }
+
+
+    }
 
     /*
      * Exercise 10.
      *
      * Given a string, determine whether or not it is a palindrome.
      */
-    public boolean isPalindrome(String text) {}
+    public boolean isPalindrome(String text) {
+
+        String backward = "";
+        int number = 0;
+        if(text == null){
+            return false;
+        }else{
+            number = text.length() - 1;
+            for(int x = number; x >= 0; x--){
+                backward += "" + text.charAt(x);
+            }
+            return backward.equals(text);
+        }
+
+    }
 }
