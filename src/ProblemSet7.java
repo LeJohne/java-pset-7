@@ -33,7 +33,24 @@ public class ProblemSet7 {
      *
      * Given a string, return a new string using the middle three characters of text.
      */
-    public String middleMan(String text) {}
+    public String middleMan(String text) {
+
+        if (text == null || text.length()%2 == 0 || text.length() < 3){
+            return text;
+        } else{
+            double n = Math.ceil(text.length() / 2);
+            int number = (int)n;
+
+            String first = text.substring(number - 1, number);
+            String middle = text.substring(number, number + 1);
+            String last = text.substring(number + 1, number + 2);
+
+            text = first.concat(middle);
+            text = text.concat(last);
+
+            return text;
+        }
+    }
 
     /*
      * Exercise 4.
